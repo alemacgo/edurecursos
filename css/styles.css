@@ -1,0 +1,8 @@
+.unit-image-container {
+    height: 15vh;
+    overflow: hidden;
+}
+
+.unit-image-container img {
+    width: 100%; 
+}
