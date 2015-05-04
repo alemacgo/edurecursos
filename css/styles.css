@@ -1,8 +1,33 @@
 .unit-image-container {
-    height: 15vh;
+    height: 100px;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .unit-image-container img {
     width: 100%; 
+}
+
+.unit-name {
+    height: 75px;
+    background-color: #e1e1e1;
+    margin: 0;
+    padding: 0;
+}
+
+.unit-name h1 {
+    /* For vertical alignment */
+    line-height: 75px;
+    margin: 0 30px;
+}
+
+/* Typography */
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 1.75em;
 }
