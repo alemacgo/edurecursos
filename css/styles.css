@@ -11,7 +11,7 @@
 
 .unit-name {
     height: 75px;
-    background-color: #f1f1f1;
+    background-color: #D4D6FF;
     margin: 0;
     padding: 0;
 }
@@ -27,13 +27,13 @@
 }
 
 .resource {
-    height: 150px;
-    line-height: 130px;
+    height: 100px;
+    line-height: 90px;
     border-style: solid;
     border-width: 2px;
     border-radius: 20px;
     border-color: #808080;
-    background-color: #f1f1f1;
+    background-color: #D4D6FF;
     margin-bottom: 30px;
     overflow: hidden;
     white-space: nowrap;
@@ -46,19 +46,19 @@
 .resource-number {
     margin-left: 40px;
     font-weight: 900;
-    font-size: 3em;
+    font-size: 2em;
 }
 
 .resource-type {
     margin-left: 20px;
     margin-top: -10px;
-    width: 82px;
-    height: 82px;
+    width: 60px;
+    height: 60px;
 }
 
 .resource-name {
     margin-left: 30px;
-    font-size: 1.75em;
+    font-size: 1.25em;
 }
 
 /* Typography */
@@ -76,7 +76,7 @@ h2 {
     margin-top: 30px;
 }
 
-a, a:hover, a:visited, a:active {
+a, a:hover:visited, a:hover, a:visited, a:active {
     color: inherit;
     text-decoration: none !important;
     outline: 0;
