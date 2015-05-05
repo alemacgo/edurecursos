@@ -1,3 +1,7 @@
+body {
+    background-color: #E6E7FF;
+}
+
 .unit-image-container {
     height: 100px;
     overflow: hidden;
@@ -11,7 +15,7 @@
 
 .unit-name {
     height: 75px;
-    background-color: #D4D6FF;
+    background-color: #fff;
     margin: 0;
     padding: 0;
 }
@@ -33,7 +37,7 @@
     border-width: 2px;
     border-radius: 20px;
     border-color: #808080;
-    background-color: #D4D6FF;
+    background-color: #fff;
     margin-bottom: 30px;
     overflow: hidden;
     white-space: nowrap;
