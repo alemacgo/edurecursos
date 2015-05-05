@@ -18,7 +18,6 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-        <script src="js/main.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.0.0/dist/sheetrock.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
 
@@ -27,139 +26,28 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div class="unit-image-container"> 
-            <img src="img/teoriacelular.jpg"/>
-        </div>
         <div class="unit-name">
             <h1>Teoría Celular</h1>
         </div>
-        <h4>NL Home Run Leaders</h4>
-        <ol id="hr">
+        <div class="resource-list" id="hr">
             <script id="hr-template" type="text/x-handlebars-template">
-                <li>
-                <strong>{{cells.Nombre}} {{cells.Tipo}}</strong>, {{cells.Link}}
-                </li>
+            <a href="{{cells.Link}}" target="_blank">
+                    <div class="resource">
+                        <div class="row">
+                            <span class="resource-number">{{{link num}}}</span>
+                            <img class="resource-type" src="img/{{cells.Tipo}}.png" />
+                            <span class="resource-name">{{cells.Nombre}}</span>
+                        </div>
+                    </div>
+            </a>
             </script>
-        </ol>
-        <div class="resource-list">
-            <h2>Introducción</h2>
-            <a href="http://www.goorulearning.org/#collection-play&id=c37ab2f2-2cc1-45a6-9f78-1dabca5150db&rid=882aa630-843f-11e3-a253-12313f070480&subject=20001&lessonId=51606" target="_blank">
-                <div class="resource">
-                    <div class="row">
-                        <span class="resource-number">01</span>
-                        <img class="resource-type" src="img/video.png" />
-                        <span class="resource-name">Introducción a las células</span>
-                    </div>
-                </div>
-            </a>
-            <h2>Transporte celular</h2>
-            <a href="https://ck12.org/life-science/Cell-Transport-in-Life-Science/asmtpractice/Cell-Transport-in-Life-Science-Practice/?referrer=concept_details" target="_blank">
-                <div class="resource">
-                    <div class="row">
-                        <span class="resource-number">01</span>
-                        <img class="resource-type" src="img/activity.png" />
-                        <span class="resource-name">Transporte celular</span>
-                    </div>
-                </div>
-            </a>
-            <a href="https://ck12.org/life-science/Cell-Transport-in-Life-Science/lecture/Active-and-Passive-Transport/" target="_blank">
-                <div class="resource">
-                    <div class="row">
-                        <span class="resource-number">01</span>
-                        <img class="resource-type" src="img/video.png" />
-                        <span class="resource-name">Transporte activo y pasivo</span>
-                    </div>
-                </div>
-            </a>
-            <a href="http://www.youtube.com/watch?v=xcuXC2K8N7Q" target="_blank">
-                <div class="resource">
-                    <div class="row">
-                        <span class="resource-number">01</span>
-                        <img class="resource-type" src="img/video.png" />
-                        <span class="resource-name">Transporte activo y pasivo (2)</span>
-                    </div>
-                </div>
-            </a>
-            <a href="http://prezi.com/smgz1nw1piej/transporte-celular/" target="_blank">
-                <div class="resource">
-                    <div class="row">
-                        <span class="resource-number">01</span>
-                        <img class="resource-type" src="img/presentation.png" />
-                        <span class="resource-name">Transporte celular</span>
-                    </div>
-                </div>
-            </a>
-            <a href="https://www.dspace.espol.edu.ec/bitstream/123456789/6276/1/2.3.Transporte%20celular%20PRISCILA.pdf" target="_blank">
-                <div class="resource">
-                    <div class="row">
-                        <span class="resource-number">01</span>
-                        <img class="resource-type" src="img/document.png" />
-                        <span class="resource-name">Transporte celular</span>
-                    </div>
-                </div>
-            </a>
-            <h2>Tipos de células</h2>
-            <a href="http://www.youtube.com/watch?v=AybM5HkTK-k" target="_blank">
-                <div class="resource">
-                    <div class="row">
-                        <span class="resource-number">01</span>
-                        <img class="resource-type" src="img/video.png" />
-                        <span class="resource-name">Células animales y vegetales</span>
-                    </div>
-                </div>
-            </a>
-            <a href="http://www.youtube.com/watch?v=pggU6BdusNw" target="_blank">
-                <div class="resource">
-                    <div class="row">
-                        <span class="resource-number">01</span>
-                        <img class="resource-type" src="img/video.png" />
-                        <span class="resource-name">Células procariotas y eucariotas</span>
-                    </div>
-                </div>
-            </a>
-            <a href="http://es.slideshare.net/DGS998/9-diferencias-entre-clula-animal-y-clula-vegetal" target="_blank">
-                <div class="resource">
-                    <div class="row">
-                        <span class="resource-number">01</span>
-                        <img class="resource-type" src="img/presentation.png" />
-                        <span class="resource-name">Célula animal y vegetal</span>
-                    </div>
-                </div>
-            </a>
-            <a href="http://prezi.com/sgthr6rdhwym/celula-animal-y-vegetal/" target="_blank">
-                <div class="resource">
-                    <div class="row">
-                        <span class="resource-number">01</span>
-                        <img class="resource-type" src="img/presentation.png" />
-                        <span class="resource-name">Célula animal y vegetal (2)</span>
-                    </div>
-                </div>
-            </a>
-            <a href="http://www.uam.es/personal_pdi/medicina/algvilla/cyta/fisiologiacyta3.pdf" target="_blank">
-                <div class="resource">
-                    <div class="row">
-                        <span class="resource-number">01</span>
-                        <img class="resource-type" src="img/document.png" />
-                        <span class="resource-name">Diferencias entre células animales y vegetales</span>
-                    </div>
-                </div>
-            </a>
-            <h2>Material extra</h2>
-            <a href="https://itunes.apple.com/us/app/cell-imaging/id427825632" target="_blank">
-                <div class="resource">
-                    <div class="row">
-                        <span class="resource-number">01</span>
-                        <img class="resource-type" src="img/activity.png" />
-                        <span class="resource-name">Cell Imaging</span>
-                    </div>
-                </div>
-            </a>
         </div>
 
         <script>
             var spreadsheetUrl = "https://docs.google.com/spreadsheet/ccc?key=1FXQ6HK6e5lKIivuRzK6pc0pOgSrh5iqQUAoDi6aorSA&gid=0";
         </script>
         <script src="js/get-contents.js"></script>
+        <script src="js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
