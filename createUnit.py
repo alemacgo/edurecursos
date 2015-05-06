@@ -1,9 +1,14 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from Tkinter import *
-#Tk, Frame, Label, Text, Button, BOTH, RIGHT, RAISED, W, N, E, S
 
+# MARK: Fetching the template and injecting the content
+
+# MARK: Generating the .html file
+
+# MARK: UI
 DefaultURL = "https://docs.google.com/spreadsheets/..."
+URLPrefix = "https://docs.google.com/spreadsheet"
 
 def centerWindow(view):
     width = 680
@@ -20,7 +25,8 @@ def clearText(event):
 def createUnit():
     url = spreadsheetURLEntry.get()
     name = unitNameEntry.get()
-    if url != DefaultURL and url != "" and name != "":
+    if url != DefaultURL and len(url) >= len(URLPrefix) and name != "":
+        print url, name
         master.quit()
 
 master = Tk()
@@ -41,4 +47,4 @@ unitNameEntry.grid(row=1, column=1)
 createButton = Button(master, text="Crear", command=createUnit)
 createButton.grid(row=2, column=1, sticky=E)
 
-master.mainloop()
+#master.mainloop()
