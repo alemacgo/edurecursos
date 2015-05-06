@@ -3,57 +3,42 @@
 from Tkinter import *
 #Tk, Frame, Label, Text, Button, BOTH, RIGHT, RAISED, W, N, E, S
 
-class App(Frame):
-    def __init__(self, parent):
-        Frame.__init__(self, parent, background="white")
-        self.parent = parent
-        self.initUI()
-        self.centerWindow()
+DefaultURL = "https://docs.google.com/spreadsheets/..."
 
-    def initUI(self):
-        self.parent.title("Crear unidad...")
-        self.pack(fill=BOTH, expand=1)
+def centerWindow(view):
+    width = 680
+    height = 100
+    sh = view.winfo_screenheight()
+    x = (view.winfo_screenwidth() - width)/2
+    y = (view.winfo_screenheight() - height)/2
+    view.geometry('%dx%d+%d+%d' % (width, height, x, y))
 
-        Label(self, text="Enlace a la hoja de cálculo").grid(row=0, sticky=W)
-        Label(self, text="Nombre de la unidad").grid(row=1, sticky=W)
-        e1 = Entry(self, width=70)
-        e1.insert(0, "https://docs.google.com/spreadsheets/...")
-        e2 = Entry(self, width=70)
-        e1.grid(row=0, column=1)
-        e2.grid(row=1, column=1)
+def clearText(event):
+    spreadsheetURLEntry.config(fg="black")
+    spreadsheetURLEntry.delete(0, END)
 
-        abtn = Button(self, text="Crear", command=self.quit)
-        abtn.grid(row=2, column=1, sticky=E)
+def createUnit():
+    url = spreadsheetURLEntry.get()
+    name = unitNameEntry.get()
+    if url != DefaultURL and url != "" and name != "":
+        master.quit()
 
-   # def initUI(self):
-   #     self.parent.title("Crear unidad...")
-   #     self.style = Style()
-   #     self.style.theme_use("default")
+master = Tk()
+centerWindow(master)
+master.title("Crear unidad...")
 
-   #     frame = Frame(self, relief=RAISED, borderwidth=1)
-   #     frame.pack(fill=BOTH, expand=1)
+Label(master, text="Enlace a la hoja de cálculo").grid(row=0, sticky=W)
+spreadsheetURLEntry = Entry(master, width=70, fg="gray")
+spreadsheetURLEntry.insert(0, DefaultURL)
+spreadsheetURLEntry.grid(row=0, column=1)
 
-   #     self.pack(fill=BOTH, expand=1)
+spreadsheetURLEntry.bind('<Button-1>', clearText)
 
-   #     closeButton = Button(self, text="Crear", command=self.quit)
-   #     closeButton.pack(side=RIGHT, padx=5, pady=5)
+Label(master, text="Nombre de la unidad").grid(row=1, sticky=W)
+unitNameEntry = Entry(master, width=70)
+unitNameEntry.grid(row=1, column=1)
 
-        #okButton = Button(self, text="OK")
-        #okButton.pack(side=RIGHT)
+createButton = Button(master, text="Crear", command=createUnit)
+createButton.grid(row=2, column=1, sticky=E)
 
-    def centerWindow(self):
-        width = 700
-        height = 150
-        sh = self.parent.winfo_screenheight()
-        x = (self.parent.winfo_screenwidth() - width)/2
-        y = (self.parent.winfo_screenheight() - height)/2
-        self.parent.geometry('%dx%d+%d+%d' % (width, height, x, y))
-
-def main():
-    root = Tk()
-    root.geometry("700x150+300+300")
-    app = App(root)
-    root.mainloop()
-
-if __name__ == '__main__':
-    main()
+master.mainloop()
