@@ -77,8 +77,9 @@ template = """
 """
 
 # MARK: UI
-DefaultURL = "https://docs.google.com/spreadsheets/..."
+PlaceholderSpreadsheetURL = "https://docs.google.com/spreadsheets/..."
 URLPrefix = "https://docs.google.com/spreadsheet"
+WebsiteBaseURL = "http://juanxxiii.droppages.com/unidades/"
 
 def centerWindow(view):
     width = 680
@@ -96,16 +97,27 @@ def filename(string):
     # unidecode doesn't play well with Tkinter Entry's get()
     return string.strip().replace('  ', ' ').replace(' ', '-').lower() + ".html"
 
-def createUnit():
+def createUnit(event = None):
     global template
     url = spreadsheetURLEntry.get()
     name = unitNameEntry.get()
-    if url != DefaultURL and len(url) >= len(URLPrefix) and name != "":
+    if url != PlaceholderSpreadsheetURL and len(url) >= len(URLPrefix) and name != "":
         html = template.replace('*', name, 1).replace('*', url, 1)
-        fd = open(filename(name), 'w')
+        fileName = filename(name)
+        fd = open(fileName, 'w')
         fd.write(html)
         fd.close()
-        master.quit()
+        popup = Toplevel()
+        centerWindow(popup)
+        Label(popup, text="La unidad fue creada. Enlace: ", height=0, width=100).pack()
+        createSelectableText(popup, WebsiteBaseURL + fileName).pack()
+        Button(popup, text="Salir", command=master.quit).pack()
+
+def createSelectableText(context, text):
+    w = Text(context, height=1, borderwidth=0)
+    w.insert(1.0, text)
+    w.configure(inactiveselectbackground=w.cget("selectbackground"))
+    return w
 
 master = Tk()
 centerWindow(master)
@@ -113,7 +125,7 @@ master.title("Crear unidad...")
 
 Label(master, text="Enlace a la hoja de cálculo").grid(row=0, sticky=W)
 spreadsheetURLEntry = Entry(master, width=70, fg="gray")
-spreadsheetURLEntry.insert(0, DefaultURL)
+spreadsheetURLEntry.insert(0, PlaceholderSpreadsheetURL)
 spreadsheetURLEntry.grid(row=0, column=1)
 
 spreadsheetURLEntry.bind('<Button-1>', clearText)
@@ -124,5 +136,7 @@ unitNameEntry.grid(row=1, column=1)
 
 createButton = Button(master, text="Crear", command=createUnit)
 createButton.grid(row=2, column=1, sticky=E)
+
+master.bind('<Return>', createUnit)
 
 master.mainloop()
