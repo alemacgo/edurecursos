@@ -13,19 +13,3 @@ $('#hr').sheetrock({
   query: "select A,B,C",
   rowTemplate: HRTemplate
 });
-
-$(document).ready(loadSpreadsheetName);
-function loadSpreadsheetName() {
-      $.getJSON(spreadsheetUrl, function(data) {
-         if (data && data != null && typeof data == "object" && data.contents && data.contents != null && typeof data.contents == "string") {
-            if (data.length > 0) {
-               if (ContentLocationInDOM && ContentLocationInDOM != null && ContentLocationInDOM != "null") {
-                  $("#unit-name").html($("#docs-title-inner", data));
-               }
-               else {
-                  $("#unit-name").html(data);
-               }
-            }
-         }
-      });
-}
